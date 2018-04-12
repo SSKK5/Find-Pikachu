@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFDC0"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select1"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 1"
+                android:textColor="#000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select2"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 2"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select3"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 3"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view03"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock03"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select4"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika4" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 4"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view04"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock04"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select5"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 5"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view05"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock05"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select6"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika6" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 6"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view06"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock06"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select7"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika7" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 7"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view07"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock07"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select8"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika8" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 8"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view08"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock08"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select9"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika9" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 9"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view09"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock09"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select10"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika10" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 10"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select11"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika11" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 11"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="select12"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pika12" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="Level 12"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/view12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/lock12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

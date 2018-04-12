@@ -1,0 +1,66 @@
+newmtl blinn1SG
+illum 4
+Kd 0.25 0.25 0.25
+Ka 0.00 0.00 0.00
+Tf 0.42 0.42 0.42
+Ni 1.00
+Ks 0.50 0.50 0.50
+
+newmtl phong1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd phong1sg.png
+map_Ka phong1sg.png
+bump phong1sg.png -bm 0.111111
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+
+newmtl phong2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd phong2sg.png
+map_Ka phong2sg.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+
+newmtl phong3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd phong3sg.png
+map_Ka phong3sg.png
+bump phong3sg.png -bm 0.037037
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+
+newmtl phong4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd phong4sg.png
+map_Ka phong4sg.png
+bump phong4sg.png -bm 0.185185
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+
+newmtl phong5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd phong5sg.png
+map_Ka phong5sg.png
+bump phong5sg.png -bm -0.62963
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00

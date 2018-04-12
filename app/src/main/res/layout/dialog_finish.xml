@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#99FFFF00"
+    android:gravity="center_horizontal"
+    android:padding="25dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Congratulations!"
+        android:textColor="#F41460"
+        android:textSize="36sp"
+        android:alpha="1"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:src="@drawable/pika_finish"
+        android:scaleType="centerInside"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:text="Go to the next Level？"
+        android:textColor="#000000"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/btn_yes"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textColor="#E24E00"
+        android:background="#FCAF0A"
+        android:gravity="center"
+        android:text="Yes"
+        android:layout_marginTop="30dp"
+        android:textSize="22sp"/>
+
+    <Button
+        android:id="@+id/btn_no"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textColor="#E24E00"
+        android:background="#FCAF0A"
+        android:gravity="center"
+        android:text="No"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"/>
+</LinearLayout>
