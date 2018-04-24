@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+/**
+ * 选择关卡界面
+ */
 public class SelectActivity extends AppCompatActivity {
 
     private View view02, view03, view04, view05, view06, view07, view08, view09, view10, view11, view12;
@@ -16,15 +19,21 @@ public class SelectActivity extends AppCompatActivity {
     private int level;
     private SharedPreferences sp;
 
+    /*
+    Activity创建时调用
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select);
-        sp = getSharedPreferences("level", Context.MODE_PRIVATE);
-        level = sp.getInt("level", 0);
-        initView();
+        setContentView(R.layout.activity_select);   // 设置布局为activity_guide.xml
+        sp = getSharedPreferences("level", Context.MODE_PRIVATE);   // sharedpreferences为本地缓存，获取名称为level的本地缓存，也就是获取已经玩到的关卡数
+        level = sp.getInt("level", 0);  // 获取缓存中名称为level的int数，即通关卡数，如果不存在这个数据，则默认值为0
+        initView(); // 初始化视图函数
     }
 
+    /*
+    初始化视图函数
+     */
     private void initView(){
         view02 = findViewById(R.id.view02);
         view03 = findViewById(R.id.view03);
@@ -50,18 +59,21 @@ public class SelectActivity extends AppCompatActivity {
         lock11 = (ImageView) findViewById(R.id.lock11);
         lock12 = (ImageView) findViewById(R.id.lock12);
 
-        refreshLevel(level);
+        refreshLevel(level);    // 更新界面中可以玩的关卡的函数
     }
 
-    public void select1(View view) {
-        Intent intent = new Intent(SelectActivity.this, MainActivity.class);
-        intent.putExtra("size", 5);
-        intent.putExtra("level", 1);
-        startActivityForResult(intent, 0);
+    public void select1(View view) {    // 当点击第一关的皮卡丘
+        Intent intent = new Intent(SelectActivity.this, MainActivity.class);    // 创建从当前界面到MainActivity的意图
+        intent.putExtra("size", 5); // 意图中增加一个size参数，值为5，也就是迷宫地图的大小为5
+        intent.putExtra("level", 1);    // 意图中增加level参数，值为1，也就是迷宫难度为第一关
+        startActivityForResult(intent, 0);  // 执行意图打开MainActivity，并且监听一个result，当MainActivity关闭，返回一个结果
     }
 
+    /*
+    下面所有的select函数都同select1函数
+     */
     public void select2(View view) {
-        if(lock02.getVisibility() == View.GONE) { // GONE
+        if(lock02.getVisibility() == View.GONE) { // 锁图片必须要是隐藏的，点击才有效果，否则不会执行下面的操作
             Intent intent = new Intent(SelectActivity.this, MainActivity.class);
             intent.putExtra("size", 7);
             intent.putExtra("level", 2);
@@ -159,12 +171,15 @@ public class SelectActivity extends AppCompatActivity {
         }
     }
 
+    /*
+    当MainActivity关闭，返回结果在这里监听
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == 1){
-            int level = data.getIntExtra("level", 0);
-            if(level > this.level) {
+        if(resultCode == 1){    // 如果从MainActivity返回的结果为1，则为MainActivity中通过了关卡，这时需要更新这个关卡界面
+            int level = data.getIntExtra("level", 0);   // 获取已经通过的关卡
+            if(level > this.level) {    // 如果已经通过的关卡比缓存中存储的关卡要大，则更新缓存中的关卡
                 sp.edit().putInt("level", level).apply();
                 this.level = level;
                 refreshLevel(level);
@@ -172,12 +187,15 @@ public class SelectActivity extends AppCompatActivity {
         }
     }
 
-    public void refreshLevel(int level){
+    /*
+    更新界面中可以玩的关卡的函数
+     */
+    public void refreshLevel(int level){       // 判断level值
         switch (level){
             case 12:
-            case 11:
-                lock12.setVisibility(View.GONE);
-                view12.setVisibility(View.GONE);
+            case 11:    // 如果已经通了11关
+                lock12.setVisibility(View.GONE);    // 将第12关的锁图片设置为不可见
+                view12.setVisibility(View.GONE);    // 将第12关的白色图片设置为不可见，没有break，会继续执行下面的case
             case 10:
                 lock11.setVisibility(View.GONE);
                 view11.setVisibility(View.GONE);

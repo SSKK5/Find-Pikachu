@@ -24,6 +24,9 @@ import com.threed.jpct.util.BitmapHelper;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+/**
+ * 游戏界面
+ */
 public class MainActivity extends AppCompatActivity {
 
     private GLSurfaceView gl_view;
@@ -52,60 +55,62 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
+            getSupportActionBar().hide();   // 隐藏标题栏
         }
 
-        Intent intent = getIntent();
+        Intent intent = getIntent();    // 获取从上一个界面传来的意图，也就是从SelectActivity传来的intent
         mazeSize = intent.getIntExtra("size", 0);   // 获取迷宫大小
         level = intent.getIntExtra("level", 0); // 获取难度等级
 
         setContentView(R.layout.activity_main);
-        gl_view = (GLSurfaceView) findViewById(R.id.gl_view);
-        gl_view.setRenderer(new GLSurfaceView.Renderer() {
+        gl_view = (GLSurfaceView) findViewById(R.id.gl_view);   // gl_view为opengl 3d绘图控件
+        gl_view.setRenderer(new GLSurfaceView.Renderer() {  // 为gl_view设置渲染器
             @Override
-            public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-                angle = 0;
-                row = 0;
-                column = 0;
+            public void onSurfaceCreated(GL10 gl, EGLConfig config) {   // 当gl_view创建时调用的函数
+                angle = 0;  // 初始化小女孩的视角向下，所以angle设置为0
+                row = 0;    // 小女孩所在行数初始化为9
+                column = 0; // 小女孩所在列数初始化为0
 
-                world = new World();
+                world = new World();    // World为世界对象，所有的3d物体都要在世界中显示
 
-                sun = new Light(world);
-                sun.setIntensity(255, 255, 255);
+                sun = new Light(world); // 定义世界中的灯光
+                sun.setIntensity(255, 255, 255);    // 设置灯光颜色为白色
 
-                loadTexture();
+                loadTexture();  // 加载所有要用到的纹理
 
+                // 加载皮卡丘模型
                 Object3D[] pika = Loader.loadOBJ(getResources().openRawResource(R.raw.pikachu), getResources().openRawResource(R.raw.pikachu1), 0.003f);
-                cube = Object3D.mergeAll(pika);
+                cube = Object3D.mergeAll(pika); // cube为加载完成的皮卡丘模型
                 cube.rotateZ((float) Math.PI);
                 cube.rotateY((float) Math.PI);
-                cube.rotateX((float) Math.PI / 6);
+                cube.rotateX((float) Math.PI / 6);  // 上面三句为皮卡丘旋转操作，将皮卡丘旋转到合适的角度
 
+                // 加载女孩模型
                 Object3D[] girlArray = Loader.loadOBJ(getResources().openRawResource(R.raw.kanna), getResources().openRawResource(R.raw.kanna_mtl), 0.08f);
-                girl = Object3D.mergeAll(girlArray);
+                girl = Object3D.mergeAll(girlArray);    // girl为加载完成的女孩模型
                 girl.rotateZ((float) Math.PI);
-                girl.rotateY((float) Math.PI);
-                girl.translate(0.5f, -1.4f, -0.5f);
+                girl.rotateY((float) Math.PI);  // 上面两句将girl旋转到合适的角度
+                girl.translate(0.5f, -1.4f, -0.5f); // 将girl平移到合适的位置
 
                 cube.strip();
                 cube.build();
                 girl.strip();
-                girl.build();
+                girl.build();   // 对模型的其他操作
                 world.addObject(girl);
-                world.addObject(cube);
+                world.addObject(cube);  // 将皮卡丘和女孩模型加载到world中
 
-                maze = new Maze();
-                maze.createMaze(mazeSize, mazeSize);
+                maze = new Maze();  // 创建迷宫对象
+                maze.createMaze(mazeSize, mazeSize);    // 创建一个长宽都为mazesize的随机迷宫
 
-                cube.translate(maze.getWidth() - 0.5f, -0.5f, -maze.getHeight() + 0.5f);
+                cube.translate(maze.getWidth() - 0.5f, -0.5f, -maze.getHeight() + 0.5f);    // 将皮卡丘平移到迷宫的右下角
                 goalRow = maze.getHeight() - 1;
                 goalColumn = maze.getWidth() - 1;
-                drawWall(0, maze.getWidth() + 0.1f, 0, -1, 0, 0.1f); // 上
-                drawWall(0, 0.1f, 0, -1, -maze.getHeight(), 0); // 左
-                drawWall(0, maze.getWidth() + 0.1f, 0, -1, -maze.getHeight(), -maze.getHeight() + 0.1f); // 下
-                drawWall(maze.getWidth(), maze.getWidth() + 0.1f, 0, -1, -maze.getHeight(), 0); // 右
+                drawWall(0, maze.getWidth() + 0.1f, 0, -1, 0, 0.1f); // 画上边的墙壁
+                drawWall(0, 0.1f, 0, -1, -maze.getHeight(), 0); // 画左边的墙壁
+                drawWall(0, maze.getWidth() + 0.1f, 0, -1, -maze.getHeight(), -maze.getHeight() + 0.1f); // 画下边的墙壁
+                drawWall(maze.getWidth(), maze.getWidth() + 0.1f, 0, -1, -maze.getHeight(), 0); // 画右边的墙壁
 
-                for (int counter = 0; counter < maze.getHeight(); counter++) {
+                for (int counter = 0; counter < maze.getHeight(); counter++) {  // 循环绘制内部所有的墙体
                     for (int counter2 = 0; counter2 < maze.getWidth(); counter2++) {
                         if (!maze.stepChecker(0, new Location(counter2, counter))) {
                             drawWall(counter2, counter2 + 1.1f, 0, -1, -counter, -counter + 0.1f);
@@ -117,18 +122,17 @@ public class MainActivity extends AppCompatActivity {
                 }
                 drawSlate(); // 画地板
 
-                // 摄像机
-                cam = world.getCamera();
-                cam.setFovAngle((float) Math.PI / 4);
-                cam.setPosition(new SimpleVector(0, -Math.cos(Math.PI / 5) * 7, -Math.sin(Math.PI / 5) * 5));
-                cam.lookAt(new SimpleVector(0, 0, 0));
-                cam.moveCamera(Camera.CAMERA_MOVERIGHT, 0.5f);
-                cam.moveCamera(Camera.CAMERA_MOVEDOWN, 0.5f);
+                cam = world.getCamera();    // 获取摄像机
+                cam.setFovAngle((float) Math.PI / 4);   // 设置视角大小为45度
+                cam.setPosition(new SimpleVector(0, -Math.cos(Math.PI / 5) * 7, -Math.sin(Math.PI / 5) * 5));   // 设置摄像机位置，xyz三个值
+                cam.lookAt(new SimpleVector(0, 0, 0));  // 设置摄像机焦点
+                cam.moveCamera(Camera.CAMERA_MOVERIGHT, 0.5f);  // 向右移动摄像机
+                cam.moveCamera(Camera.CAMERA_MOVEDOWN, 0.5f);   // 向下移动摄像机
 
                 SimpleVector sv = new SimpleVector();
                 sv.set(girl.getTransformedCenter());
                 sv.y -= 5;
-                sun.setPosition(sv);
+                sun.setPosition(sv);    // 将灯光位置设置到女孩头顶
             }
 
             @Override

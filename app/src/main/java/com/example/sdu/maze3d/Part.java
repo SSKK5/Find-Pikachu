@@ -1,11 +1,11 @@
 package com.example.sdu.maze3d;
 
 /**
- * Created by Administrator on 2018/4/8.
+ * 地图类中要用到的数据
  */
 public class Part {
-    boolean upClear;
-    boolean rightClear;
+    boolean upClear;    // 上部是否清除
+    boolean rightClear; // 右部是否清除
 
     public Part(boolean upClear, boolean rightClear){
         this.upClear = upClear;

@@ -7,8 +7,10 @@
         android:icon="@mipmap/pika_finish"
         android:supportsRtl="true"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity"
+            android:hardwareAccelerated="true"/>
         <activity android:name=".SelectActivity"
             android:label="@string/select"/>
         <activity android:name=".GuideActivity">

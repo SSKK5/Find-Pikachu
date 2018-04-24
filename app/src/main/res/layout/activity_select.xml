@@ -60,7 +60,7 @@
                 android:id="@+id/view02"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#fff" />
+                android:background="#fff"/>
 
             <ImageView
                 android:id="@+id/lock02"

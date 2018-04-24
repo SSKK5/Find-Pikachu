@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 /**
- * Created by Administrator on 2018/4/11.
+ * 通关显示的提示框
  */
 public class FinishDialog extends Dialog implements View.OnClickListener {
     private Context context;

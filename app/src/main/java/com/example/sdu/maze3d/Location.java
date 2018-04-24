@@ -1,7 +1,7 @@
 package com.example.sdu.maze3d;
 
 /**
- * Created by Administrator on 2018/4/8.
+ * 坐标类
  */
 public class Location {
     private float x;

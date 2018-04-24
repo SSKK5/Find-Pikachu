@@ -5,7 +5,7 @@ import com.threed.jpct.Object3D;
 import java.util.Random;
 
 /**
- * 迷宫类
+ * 迷宫类，基本思想是构建一个每个点都连通的图
  */
 public class Maze {
 
